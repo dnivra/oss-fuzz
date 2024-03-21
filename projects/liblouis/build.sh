@@ -15,4 +15,5 @@
 #
 ################################################################################
 
+sed -i 's/fuzz_lib.a$/fuzz_lib.a -lpthread/' $SRC/liblouis/tests/fuzzing/build.sh
 $SRC/liblouis/tests/fuzzing/build.sh
