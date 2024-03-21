@@ -19,4 +19,5 @@ RUN apt-get update && apt-get install -y make autoconf automake libtool \
   pkg-config cmake zlib1g-dev
 RUN git clone --depth 1 https://github.com/HDFGroup/hdf5
 WORKDIR hdf5
+RUN git checkout 23d3d63
 COPY build.sh *.c *.options $SRC/

@@ -20,4 +20,5 @@ RUN git clone --depth 1 https://github.com/gnuaspell/aspell.git $SRC/aspell
 RUN git clone --depth 1 -b master https://github.com/gnuaspell/aspell-fuzz.git $SRC/aspell-fuzz
 
 WORKDIR $SRC/aspell-fuzz
+RUN git checkout fa4aa32 && git -C $SRC/aspell checkout a0f7775
 COPY build.sh $SRC/

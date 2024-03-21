@@ -25,6 +25,10 @@ RUN git clone --depth 1 https://gitlab.freedesktop.org/cairo/cairo.git && \
 
 ADD https://raw.githubusercontent.com/google/fuzzing/master/dictionaries/png.dict $SRC/cairo.dict
 
+RUN git -C $SRC/glib checkout e583a35096b122047a6a3a43614a3d8b810b088e
+RUN git -C $SRC/cairo checkout 057a949bb71a94b1e1881fc641a5ebddd820c0e0
+RUN git -C $SRC/freetype2 checkout f42ce25563b73fed0123d18a2556b9ba01d2c76b
+
 WORKDIR $SRC/cairo
 COPY targets $SRC/fuzz
 COPY build.sh $SRC/

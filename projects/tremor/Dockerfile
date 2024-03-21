@@ -19,6 +19,8 @@ RUN apt-get update && apt-get install -y make autoconf automake ffmpeg libogg-de
 RUN python3 -m pip install corpus-replicator
 RUN git clone --depth 1 https://gitlab.xiph.org/xiph/ogg.git
 RUN git clone --depth 1 https://gitlab.xiph.org/xiph/tremor.git
+RUN git -C tremor checkout 7c30a66346199f3f09017a09567c6c8a3a0eedc8
+RUN git -C ogg checkout db5c7a49ce7ebda47b15b78471e78fb7f2483e22
 RUN corpus-replicator -o decode_corpus audio_vorbis_ogg_libvorbis.yml audio
 WORKDIR tremor
 COPY decode_fuzzer.cc $SRC/tremor/

@@ -41,5 +41,6 @@ RUN wget https://sourceforge.net/projects/boost/files/boost/1.70.0/boost_1_70_0.
     rm -rf boost_1_70_0]
 
 RUN git clone --depth 1 https://github.com/PointCloudLibrary/pcl
+RUN git -C pcl checkout ccc4eee
 COPY build.sh $SRC/
 WORKDIR $SRC/

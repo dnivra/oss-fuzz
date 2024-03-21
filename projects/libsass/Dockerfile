@@ -17,6 +17,7 @@
 FROM gcr.io/oss-fuzz-base/base-builder
 RUN apt-get update && apt-get install -y make autoconf automake libtool
 RUN git clone --depth 1 https://github.com/sass/libsass.git libsass
+RUN git -C libsass checkout 7037f03
 WORKDIR $SRC
 COPY build.sh $SRC/
 COPY data_context_fuzzer.cc $SRC/

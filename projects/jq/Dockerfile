@@ -20,4 +20,5 @@ RUN apt-get update && apt-get install -y \
 
 RUN git clone --depth 1 https://github.com/jqlang/jq
 WORKDIR $SRC/jq
+RUN git checkout be437ec
 COPY build.sh *.dict $SRC/

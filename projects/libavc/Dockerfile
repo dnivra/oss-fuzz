@@ -20,3 +20,4 @@ RUN git clone https://github.com/ittiam-systems/libavc.git
 ADD https://storage.googleapis.com/android_media/external/libavc/fuzzer/avc_dec_fuzzer_seed_corpus.zip $SRC/
 COPY build.sh $SRC/
 WORKDIR libavc
+RUN git checkout 5ff8061

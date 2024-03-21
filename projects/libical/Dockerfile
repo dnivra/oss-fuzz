@@ -20,3 +20,4 @@ RUN git clone --depth 1 https://github.com/libical/libical.git
 COPY build.sh $SRC
 COPY *.cc $SRC/
 WORKDIR libical
+RUN git checkout 8ea7d77

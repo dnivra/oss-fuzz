@@ -19,3 +19,4 @@ RUN apt-get update && apt-get install -y cmake m4 zlib1g-dev libcurlpp-dev libcu
 RUN git clone --depth 1 https://github.com/Unidata/netcdf-c
 COPY build.sh $SRC
 WORKDIR $SRC/netcdf-c
+RUN git checkout 2849b70

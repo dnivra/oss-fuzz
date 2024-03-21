@@ -24,5 +24,6 @@ RUN apt-get update && \
 RUN git clone -b next --single-branch \
     https://github.com/htacg/tidy-html5.git tidy-html5
 WORKDIR tidy-html5
+RUN git checkout d08ddc2
 COPY build.sh $SRC/
 COPY *.c *.h *.options $SRC/

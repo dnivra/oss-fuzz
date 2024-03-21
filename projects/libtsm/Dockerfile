@@ -19,4 +19,5 @@ RUN apt-get update && apt-get install -y make autoconf automake libtool pkg-conf
 
 RUN git clone --depth 1 git://people.freedesktop.org/~dvdhrm/libtsm
 WORKDIR libtsm
+RUN git checkout b73acb4
 COPY build.sh libtsm_fuzzer.c $SRC/
