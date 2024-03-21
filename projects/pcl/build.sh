@@ -15,5 +15,6 @@
 #
 ################################################################################
 
+sed -i 's/-lm/-lm -lpthread/' $SRC/pcl/test/fuzz/build.sh
 chmod +x $SRC/pcl/test/fuzz/build.sh
 $SRC/pcl/test/fuzz/build.sh
