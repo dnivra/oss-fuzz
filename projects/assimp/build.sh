@@ -23,5 +23,5 @@ cmake --build .
 
 # Build the fuzzer
 $CXX $CXXFLAGS $LIB_FUZZING_ENGINE -std=c++11 -I$SRC/assimp/include \
-		fuzz/assimp_fuzzer.cc -o $OUT/assimp_fuzzer  \
+		fuzz/assimp_fuzzer.cc -o $OUT/assimp_fuzzer -lpthread  \
 		./lib/libassimp.a ./contrib/zlib/libzlibstatic.a
