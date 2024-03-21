@@ -19,4 +19,4 @@ cd sql-parser
 sed 's/static ?= no/LIB_CFLAGS += ${CXXFLAGS}\nstatic ?= no/g' -i Makefile
 make static=yes
 $CXX $CXXFLAGS $LIB_FUZZING_ENGINE \
-    fuzz_sql_parse.cpp libsqlparser.a -I./src -o $OUT/fuzz_sql_parse
+    fuzz_sql_parse.cpp libsqlparser.a -I./src -lpthread -o $OUT/fuzz_sql_parse
