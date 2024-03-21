@@ -23,7 +23,7 @@ cd $SRC
 $CXX $CXXFLAGS $LIB_FUZZING_ENGINE -std=c++11 \
         -I. -Ixerces-c/src \
         xerces_fuzz_common.cpp parse_target.cpp -o $OUT/parse_target \
-        xerces-c/src/.libs/libxerces-c.a
+        xerces-c/src/.libs/libxerces-c.a -lpthread
 
 if [[ $CFLAGS != *sanitize=memory* ]]; then
 	rm -rf genfiles && mkdir genfiles && LPM/external.protobuf/bin/protoc xml.proto --cpp_out=genfiles
@@ -36,5 +36,5 @@ if [[ $CFLAGS != *sanitize=memory* ]]; then
 	        -o $OUT/parse_target_proto xerces-c/src/.libs/libxerces-c.a \
 	        LPM/src/libfuzzer/libprotobuf-mutator-libfuzzer.a \
 	        LPM/src/libprotobuf-mutator.a \
-	        -Wl,--start-group LPM/external.protobuf/lib/lib*.a -Wl,--end-group
+	        -Wl,--start-group LPM/external.protobuf/lib/lib*.a -Wl,--end-group -lpthread
 fi
