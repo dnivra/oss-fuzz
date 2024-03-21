@@ -50,7 +50,7 @@ for fuzzer in zxdoc pdfload JBIG2; do
     cp ../../fuzz_$fuzzer.cc .
     $CXX fuzz_$fuzzer.cc -o $OUT/fuzz_$fuzzer $CXXFLAGS $LIB_FUZZING_ENGINE \
       ./xpdf/libtestXpdfStatic.a ./fofi/libfofi.a ./goo/libgoo.a ./splash/libsplash.a ./xpdf/libtestXpdfWidgetStatic.a /work/prefix/lib/libfreetype.a \
-      -I../ -I../goo -I../fofi -I. -I../xpdf -I../splash
+      -I../ -I../goo -I../fofi -I. -I../xpdf -I../splash -lpthread
 done
 
 # Copy over options files
