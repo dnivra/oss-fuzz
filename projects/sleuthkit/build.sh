@@ -47,17 +47,17 @@ declare -A TSK_VS_TYPES=(
 # The fls APFS fuzz target has a seperate source file since it uses the libtsk
 # pool layer.
 $CXX $CXXFLAGS -std=c++14 -I.. -I. -Itsk \
-    $SRC/sleuthkit_fls_apfs_fuzzer.cc -o $OUT/sleuthkit_fls_apfs_fuzzer \
+    $SRC/sleuthkit_fls_apfs_fuzzer.cc -lpthread -o $OUT/sleuthkit_fls_apfs_fuzzer \
     $LIB_FUZZING_ENGINE $SRC/sleuthkit/tsk/.libs/libtsk.a -lz
 
 for type in ${!TSK_FS_TYPES[@]}; do
   $CXX $CXXFLAGS -std=c++14 -I.. -I. -Itsk -DFSTYPE=${TSK_FS_TYPES[$type]} \
-      $SRC/sleuthkit_fls_fuzzer.cc -o $OUT/sleuthkit_fls_${type}_fuzzer \
+      $SRC/sleuthkit_fls_fuzzer.cc -lpthread -o $OUT/sleuthkit_fls_${type}_fuzzer \
       $LIB_FUZZING_ENGINE $SRC/sleuthkit/tsk/.libs/libtsk.a -lz
 done
 
 for type in ${!TSK_VS_TYPES[@]}; do
   $CXX $CXXFLAGS -std=c++14 -I.. -I. -Itsk -DVSTYPE=${TSK_VS_TYPES[$type]} \
-      $SRC/sleuthkit_mmls_fuzzer.cc -o $OUT/sleuthkit_mmls_${type}_fuzzer \
+      $SRC/sleuthkit_mmls_fuzzer.cc -lpthread -o $OUT/sleuthkit_mmls_${type}_fuzzer \
       $LIB_FUZZING_ENGINE $SRC/sleuthkit/tsk/.libs/libtsk.a -lz
 done
