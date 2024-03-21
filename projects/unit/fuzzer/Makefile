@@ -8,7 +8,7 @@ jsonEXE=Fuzz_json
 INC=-I ../src -I ../build -I../src/test/ -I../build/include/
 EXTCFLAGS=-Wall -Werror -g
 LibINC=-L../build/lib/
-LibFLAGS=$(LIB_FUZZING_ENGINE) -lnxt
+LibFLAGS=$(LIB_FUZZING_ENGINE) -lnxt -lpthread -ldl
 
 all: $(TARGET)
 
